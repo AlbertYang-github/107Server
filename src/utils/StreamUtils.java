@@ -8,6 +8,9 @@ import java.io.*;
  * Created by Yohann on 2016/8/11.
  */
 public class StreamUtils {
+
+    private static InputStreamReader inReader;
+
     /**
      * 从流中获取字符串
      *
@@ -15,7 +18,7 @@ public class StreamUtils {
      * @return String
      */
     public static String readString(InputStream in) throws UnsupportedEncodingException {
-        InputStreamReader inReader = new InputStreamReader(in, "UTF-8");
+        inReader = new InputStreamReader(in, "UTF-8");
         StringBuilder strBuilder = new StringBuilder();
         char[] buffer = new char[20];
         int len = 0;
@@ -25,12 +28,6 @@ public class StreamUtils {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            try {
-                inReader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
         return strBuilder.toString();
     }
@@ -45,5 +42,9 @@ public class StreamUtils {
     public static void writeString(OutputStream out, String data) throws IOException {
         out.write(data.getBytes("UTF-8"));
         out.flush();
+    }
+
+    public static void close() throws IOException {
+        inReader.close();
     }
 }

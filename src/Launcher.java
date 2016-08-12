@@ -18,7 +18,7 @@ public class Launcher {
                 Socket socket = serverSocket.accept();
                 System.out.println("连接成功");
                 //创建业务线程
-                new Thread(new ThreadTask(socket)).start();
+                new Thread(new ServerThread(socket)).start();
             }
         } catch (IOException e) {
             e.printStackTrace();

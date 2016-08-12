@@ -10,14 +10,13 @@ import java.sql.SQLException;
 public class ServerTest {
     @Test
     public void test() {
-        boolean result = false;
         try {
-            result = new UserReg().register("yanghuan", "1234");
-        } catch (SQLException e) {
-            e.printStackTrace();
+            String password = new UserDao().query("ya");
+            System.out.println("password = " + password);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        System.out.println("result = " + result);
     }
 }

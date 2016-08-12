@@ -1,9 +1,6 @@
 package dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Properties;
 
 /**
@@ -55,7 +52,7 @@ public class UserDao {
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, username);
             pstmt.setString(2, password);
-            rows =  pstmt.executeUpdate();
+            rows = pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -68,5 +65,35 @@ public class UserDao {
         }
 
         return rows;
+    }
+
+    /**
+     * 根据用户名查询密码
+     *
+     * @param username
+     * @return
+     */
+    public String query(String username) {
+        String sql = "SELECT * FROM USER WHERE username = ?";
+        PreparedStatement pstmt = null;
+        String password = null;
+        try {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, username);
+            ResultSet resultSet = pstmt.executeQuery();
+            if (resultSet.next()) {
+                password = resultSet.getString("password");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                pstmt.close();
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return password;
     }
 }
