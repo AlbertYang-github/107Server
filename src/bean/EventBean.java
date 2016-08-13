@@ -1,11 +1,13 @@
 package bean;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 /**
  * Created by Yohann on 2016/8/12.
  */
-public class EventData {
+public class EventBean {
+    //事件id
+    private Integer id;
     //起始地点名
     private String startLocation;
     //结束地点名
@@ -25,11 +27,13 @@ public class EventData {
     //事件描述
     private String eventDesc;
     //起始时间
-    private Date startTime;
+    private Timestamp startTime;
     //结束时间
-    private Date endTime;
-    //用户反馈响应
-    private String response;
+    private Timestamp endTime;
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public void setStartLocation(String startLocation) {
         this.startLocation = startLocation;
@@ -67,16 +71,16 @@ public class EventData {
         this.eventDesc = eventDesc;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(Timestamp startTime) {
         this.startTime = startTime;
     }
 
-    public void setEndTime(Date endTime) {
+    public void setEndTime(Timestamp endTime) {
         this.endTime = endTime;
     }
 
-    public void setResponse(String response) {
-        this.response = response;
+    public Integer getId() {
+        return id;
     }
 
     public String getStartLocation() {
@@ -115,15 +119,11 @@ public class EventData {
         return eventDesc;
     }
 
-    public Date getStartTime() {
+    public Timestamp getStartTime() {
         return startTime;
     }
 
-    public Date getEndTime() {
+    public Timestamp getEndTime() {
         return endTime;
-    }
-
-    public String getResponse() {
-        return response;
     }
 }

@@ -1,5 +1,4 @@
 import dao.UserDao;
-import loginReg.UserReg;
 import org.junit.Test;
 
 import java.sql.SQLException;
@@ -11,7 +10,7 @@ public class ServerTest {
     @Test
     public void test() {
         try {
-            String password = new UserDao().query("ya");
+            String password = new UserDao().queryPassword("ya");
             System.out.println("password = " + password);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

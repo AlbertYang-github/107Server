@@ -1,5 +1,7 @@
 package dao;
 
+import bean.CloseConnBean;
+
 import java.sql.*;
 import java.util.Properties;
 
@@ -36,6 +38,58 @@ public class UserDao {
     }
 
     /**
+     * 在注册后，创建用户参与表和用户足迹表
+     *
+     * @param username
+     */
+    public void createUserTables(String username) {
+        String sql1 = "CREATE TABLE " + username + "_events(" +
+                "id INT PRIMARY KEY AUTO_INCREMENT," +
+                "start_location VARCHAR(50) NOT NULL," +
+                "end_location VARCHAR(50) NOT NULL," +
+                "start_longitude DOUBLE NOT NULL," +
+                "end_longitude DOUBLE NOT NULL," +
+                "start_latitude DOUBLE NOT NULL," +
+                "end_latitude DOUBLE NOT NULL," +
+                "event_type VARCHAR(20) NOT NULL," +
+                "event_title VARCHAR(50) NOT NULL," +
+                "event_desc VARCHAR(500) NOT NULL," +
+                "voice LONGBLOB," +
+                "picture LONGBLOB," +
+                "video LONGBLOB," +
+                "start_time DATETIME NOT NULL," +
+                "end_time DATETIME NOT NULL" +
+                ")";
+
+        String sql2 = "CREATE TABLE " + username + "_track(" +
+                "id INT PRIMARY KEY AUTO_INCREMENT," +
+                "location VARCHAR(50) NOT NULL," +
+                "longitude DOUBLE NOT NULL," +
+                "latitude DOUBLE NOT NULL," +
+                "time DATETIME NOT NULL" +
+                ");";
+
+        Statement stmt = null;
+
+        try {
+            //批处理
+            stmt = conn.createStatement();
+            stmt.addBatch(sql1);
+            stmt.addBatch(sql2);
+            stmt.executeBatch();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                stmt.close();
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
      * 添加用户
      *
      * @param username
@@ -44,7 +98,7 @@ public class UserDao {
      */
     public int insert(String username, String password) {
 
-        String sql = "INSERT INTO user (username, password) VALUES (?, ?)";
+        String sql = "INSERT INTO user (username, password, star) VALUES (?, ?, ?)";
         PreparedStatement pstmt = null;
         int rows = 0;
 
@@ -52,6 +106,7 @@ public class UserDao {
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, username);
             pstmt.setString(2, password);
+            pstmt.setInt(3, 0);
             rows = pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -68,12 +123,43 @@ public class UserDao {
     }
 
     /**
+     * 注册查询
+     *
+     * @param username
+     * @return 如果存在此用户名返回true，否则返回false
+     */
+    public boolean queryReg(String username) {
+        String sql = "SELECT * FROM USER WHERE username = ?";
+        PreparedStatement pstmt = null;
+        boolean b = false;
+        try {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, username);
+            ResultSet resultSet = pstmt.executeQuery();
+            if (resultSet.next()) {
+                b = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                pstmt.close();
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return b;
+    }
+
+    /**
      * 根据用户名查询密码
      *
      * @param username
      * @return
      */
-    public String query(String username) {
+    public String queryPassword(String username) {
         String sql = "SELECT * FROM USER WHERE username = ?";
         PreparedStatement pstmt = null;
         String password = null;
@@ -95,5 +181,36 @@ public class UserDao {
             }
         }
         return password;
+    }
+
+    /**
+     * 根据用户名查询用户所有的信息
+     *
+     * @param username
+     * @return
+     */
+    public CloseConnBean queryUserMsg(String username) {
+        String sql = "SELECT * FROM USER WHERE username = ?";
+        PreparedStatement pstmt = null;
+        ResultSet resultSet = null;
+        try {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, username);
+            resultSet = pstmt.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        //创建返回数据模型
+        CloseConnBean closeConnBean = new CloseConnBean();
+        if (conn != null) {
+            closeConnBean.setConn(conn);
+        }
+        if (pstmt != null) {
+            closeConnBean.setPstmt(pstmt);
+        }
+        closeConnBean.setResultSet(resultSet);
+
+        return closeConnBean;
     }
 }
