@@ -49,12 +49,12 @@ public class UserDaoTemp {
                 "end_longitude DOUBLE NOT NULL," +
                 "start_latitude DOUBLE NOT NULL," +
                 "end_latitude DOUBLE NOT NULL," +
-                "event_type VARCHAR(20) NOT NULL," +
-                "event_title VARCHAR(50) NOT NULL," +
-                "event_desc VARCHAR(500) NOT NULL," +
-                "voice LONGBLOB," +
-                "picture LONGBLOB," +
-                "video LONGBLOB," +
+                "event_labels VARCHAR(30) NOT NULL," +
+                "event_title VARCHAR(100) NOT NULL," +
+                "event_desc VARCHAR(1000) NOT NULL," +
+                "voice_path VARCHAR(200)," +
+                "picture_path VARCHAR(200)," +
+                "video_path VARCHAR(200)," +
                 "start_time DATETIME NOT NULL" +
                 ")";
 

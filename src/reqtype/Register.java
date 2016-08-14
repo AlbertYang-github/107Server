@@ -2,7 +2,6 @@ package reqtype;
 
 import bean.UserBean;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import loginreg.UserReg;
 import utils.StreamUtils;
 
@@ -49,6 +48,7 @@ public class Register {
         socket.shutdownOutput();
 
         //关闭流和socket
+        out.close();
         StreamUtils.close();
         socket.close();
     }

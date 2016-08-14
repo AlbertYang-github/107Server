@@ -1,3 +1,5 @@
+package constants;
+
 /**
  * Created by Yohann on 2016/8/11.
  */
@@ -7,6 +9,11 @@ public class Constants {
      * 主机端口号
      */
     public static final int PORT = 20000;
+
+    /**
+     * 媒体文件路径
+     */
+    public static final String PERPATH = "D:/107Files/";
 
     /**
      * 注册

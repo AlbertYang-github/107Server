@@ -49,6 +49,7 @@ public class Login {
         socket.shutdownOutput();
 
         //关闭流和socket
+        out.close();
         StreamUtils.close();
         socket.close();
     }

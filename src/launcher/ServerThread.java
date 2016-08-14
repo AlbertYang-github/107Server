@@ -1,4 +1,8 @@
+package launcher;
+
 import com.google.gson.Gson;
+import constants.Constants;
+import reqtype.EventAdd;
 import reqtype.Login;
 import reqtype.Register;
 import utils.StreamUtils;
@@ -28,14 +32,14 @@ public class ServerThread implements Runnable {
                 InputStream in = socket.getInputStream();
                 String data = StreamUtils.readString(in);
 
-                String head = data.substring(0, 3);
+                String header = data.substring(0, 3);
                 String body = data.substring(3);
 
-                System.out.println("head=" + head);
+                System.out.println("header=" + header);
                 System.out.println("body=" + body);
 
                 //判断任务类型
-                switch (head) {
+                switch (header) {
                     //注册
                     case Constants.REGISTER:
                         System.out.println("执行注册任务");
@@ -47,6 +51,12 @@ public class ServerThread implements Runnable {
                         System.out.println("执行登录任务");
                         new Login(socket).login(body);
                         break;
+
+                    //添加107端上传的事件
+                    case Constants.ADD_EVENT:
+                        System.out.println("添加107端上传的事件");
+                        new EventAdd(socket).addEvent(body);
+                        break;
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -54,7 +64,7 @@ public class ServerThread implements Runnable {
                 e.printStackTrace();
             } catch (SQLException e) {
                 e.printStackTrace();
-            }
+            } //注意：这里不能立刻关闭流资源，因为直接用传统方式关闭流后socket也会被关闭
         }
     }
 }
