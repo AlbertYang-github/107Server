@@ -11,9 +11,14 @@ public class Constants {
     public static final int PORT = 20000;
 
     /**
-     * 媒体文件路径
+     * 每个事件的路径
      */
-    public static final String PERPATH = "D:/107Files/";
+    public static final String EVENTS_PATH = "D:/107Server/107Files/Events/";
+
+    /**
+     * 用户个人目录
+     */
+    public static final String USERS_PATH = "D:/107Server/107Files/Users/";
 
     /**
      * 注册

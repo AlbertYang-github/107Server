@@ -17,6 +17,7 @@ public class Launcher {
     public static void main(String[] args) {
         try {
             ServerSocket serverSocket = new ServerSocket(Constants.PORT);
+            System.out.println("---------------- 程序已运行 ---------------");
             while (true) {
                 //等待客户端连接
                 Socket socket = serverSocket.accept();

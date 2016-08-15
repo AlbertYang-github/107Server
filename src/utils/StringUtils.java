@@ -14,33 +14,22 @@ public class StringUtils {
      * @return
      */
     public static String getStringFromArray(String[] arr) {
-        StringBuilder strBuilder = new StringBuilder();
-        for (int i = 0; i < arr.length; i++) {
-            if (i != arr.length - 1) {
-                strBuilder.append(arr[i] + "&");
-            } else {
-                strBuilder.append(arr[i]);
-            }
-        }
-        return strBuilder.toString();
-    }
+        StringBuilder strBuilder = null;
 
-    /**
-     * 将ArryList转换为"xxx&xxx&xxx"这种格式的字符串
-     *
-     * @param list
-     * @return
-     */
-    public static String getStringFromArrayList(ArrayList<String> list) {
-        StringBuilder strBuilder = new StringBuilder();
-        for (int i = 0; i < list.size(); i++) {
-            if (i != list.size() - 1) {
-                strBuilder.append(list.get(i) + "&");
-            } else {
-                strBuilder.append(list.get(i));
+        if (arr != null) {
+            strBuilder = new StringBuilder();
+            for (int i = 0; i < arr.length; i++) {
+                if (i != arr.length - 1) {
+                    strBuilder.append(arr[i] + "&");
+                } else {
+                    strBuilder.append(arr[i]);
+                }
             }
+            return strBuilder.toString();
+
+        } else {
+            return null;
         }
-        return strBuilder.toString();
     }
 
     /**
@@ -50,7 +39,36 @@ public class StringUtils {
      * @return
      */
     public static String[] getArrayFromString(String str) {
-        String[] arr = str.split("&");
+        String[] arr = null;
+        if (str != null) {
+            arr = str.split("&");
+        }
         return arr;
+    }
+
+    /**
+     * 将ArryList转换为"xxx&xxx&xxx"这种格式的字符串
+     *
+     * @param list
+     * @return
+     */
+    public static String getStringFromArrayList(ArrayList<String> list) {
+
+        StringBuilder strBuilder = null;
+
+        if (list != null) {
+            strBuilder = new StringBuilder();
+            for (int i = 0; i < list.size(); i++) {
+                if (i != list.size() - 1) {
+                    strBuilder.append(list.get(i) + "&");
+                } else {
+                    strBuilder.append(list.get(i));
+                }
+            }
+            return strBuilder.toString();
+
+        } else {
+            return null;
+        }
     }
 }

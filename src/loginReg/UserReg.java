@@ -3,9 +3,11 @@ package loginreg;
 import bean.CloseConnBean;
 import bean.UserBean;
 import com.google.gson.Gson;
+import constants.Constants;
 import dao.UserDao;
 import dao.UserDaoTemp;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -44,7 +46,14 @@ public class UserReg {
             new UserDaoTemp().createUserTables(username);
 
             if (rows != 0) {
+
+                //创建用户的个人目录
+                File file = new File(Constants.USERS_PATH + username);
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
                 return true;
+
             } else {
                 return false;
             }

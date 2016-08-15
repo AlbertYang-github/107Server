@@ -25,12 +25,8 @@ public class EventAdd {
     private EventBean eventBean;
     private Gson gson;
 
-    //每个语音文件的路径
-    private ArrayList<String> voiceList;
     //每个图片文件的路径
     private ArrayList<String> picList;
-    //每个视频文件的路径
-    private ArrayList<String> videoList;
 
     public EventAdd(Socket socket) {
         this.socket = socket;
@@ -48,7 +44,7 @@ public class EventAdd {
         String result = null;
 
         //获取事件的各个信息
-        EventBean eventBean = gson.fromJson(body, EventBean.class);
+        eventBean = gson.fromJson(body, EventBean.class);
         String startLocation = eventBean.getStartLocation();
         String endLocation = eventBean.getEndLocation();
         Double startLongitude = eventBean.getStartLongitude();
@@ -79,12 +75,13 @@ public class EventAdd {
         if (id != 0) {
             //添加成功
             result = "1";
-            System.out.println("添加成功");
 
             //设置二进制文件路径
             if (setBinaryPath(voice, picture, video, id) != 0) {
                 //将客户端上传的二进制文件存放在本地
                 addbinary(socket, id);
+
+                System.out.println("添加成功");
             } else {
                 result = "0";
             }
@@ -114,9 +111,9 @@ public class EventAdd {
     public void addbinary(Socket socket, int id) {
 
         //以返回的id在本地创建目录 (该目录中存放该事件的媒体文件)
-        File file = new File(Constants.PERPATH + id);
+        File file = new File(Constants.EVENTS_PATH + id);
         if (!file.exists()) {
-            file.mkdir();
+            file.mkdirs();
         }
     }
 
@@ -128,30 +125,26 @@ public class EventAdd {
      * @param video
      */
     private int setBinaryPath(String voice, String picture, String video, int id) {
-
-        String[] voiceArr = StringUtils.getArrayFromString(voice);
-        String[] picArr = StringUtils.getArrayFromString(picture);
-        String[] videoArr = StringUtils.getArrayFromString(video);
-
-        voiceList = new ArrayList<>();
+        //如果文件名为空，路径也为空
+        String voicePath = null;
+        String picPath = null;
+        String videoPath = null;
         picList = new ArrayList<>();
-        videoList = new ArrayList<>();
 
-        for (int i = 0; i < voiceArr.length; i++) {
-            voiceList.add(Constants.PERPATH + id + "/" + voiceArr[i]);
+        String[] picArr = StringUtils.getArrayFromString(picture);
+        if (picArr != null) {
+            for (int i = 0; i < picArr.length; i++) {
+                picList.add(Constants.EVENTS_PATH + id + "/" + picArr[i]);
+            }
         }
 
-        for (int i = 0; i < picArr.length; i++) {
-            picList.add(Constants.PERPATH + id + "/" + picArr[i]);
+        if (voice != null) {
+            voicePath = Constants.EVENTS_PATH + id + "/" + voice;
         }
-
-        for (int i = 0; i < videoArr.length; i++) {
-            videoList.add(Constants.PERPATH + id + "/" + videoArr[i]);
+        if (video != null) {
+            videoPath = Constants.EVENTS_PATH + id + "/" + video;
         }
-
-        String voicePath = StringUtils.getStringFromArrayList(voiceList);
-        String picPath = StringUtils.getStringFromArrayList(picList);
-        String videoPath = StringUtils.getStringFromArrayList(videoList);
+        picPath = StringUtils.getStringFromArrayList(picList);
 
         //将路径添加到数据库中
         int rows = 0;

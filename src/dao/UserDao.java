@@ -45,25 +45,25 @@ public class UserDao {
     public void createUserTables(String username) {
         String sql1 = "CREATE TABLE " + username + "_events(" +
                 "id INT PRIMARY KEY AUTO_INCREMENT," +
-                "start_location VARCHAR(50) NOT NULL," +
-                "end_location VARCHAR(50) NOT NULL," +
+                "start_location VARCHAR(100) NOT NULL," +
+                "end_location VARCHAR(100) NOT NULL," +
                 "start_longitude DOUBLE NOT NULL," +
                 "end_longitude DOUBLE NOT NULL," +
                 "start_latitude DOUBLE NOT NULL," +
                 "end_latitude DOUBLE NOT NULL," +
-                "event_type VARCHAR(20) NOT NULL," +
-                "event_title VARCHAR(50) NOT NULL," +
-                "event_desc VARCHAR(500) NOT NULL," +
-                "voice LONGBLOB," +
-                "picture LONGBLOB," +
-                "video LONGBLOB," +
+                "event_type VARCHAR(100) NOT NULL," +
+                "event_title VARCHAR(300) NOT NULL," +
+                "event_desc VARCHAR(1000) NOT NULL," +
+                "voice VARCHAR(500)," +
+                "picture VARCHAR(500)," +
+                "video VARCHAR(500)," +
                 "start_time DATETIME NOT NULL," +
                 "end_time DATETIME NOT NULL" +
                 ")";
 
         String sql2 = "CREATE TABLE " + username + "_track(" +
                 "id INT PRIMARY KEY AUTO_INCREMENT," +
-                "location VARCHAR(50) NOT NULL," +
+                "location VARCHAR(100) NOT NULL," +
                 "longitude DOUBLE NOT NULL," +
                 "latitude DOUBLE NOT NULL," +
                 "time DATETIME NOT NULL" +
