@@ -1,6 +1,7 @@
 package reqtype;
 
 import bean.EventBean;
+import bean.EventId;
 import com.google.gson.Gson;
 import constants.Constants;
 import dao.EventDao;
@@ -27,6 +28,9 @@ public class EventAdd {
 
     //每个图片文件的路径
     private ArrayList<String> picList;
+    private String voicePath;
+    private String picPath;
+    private String videoPath;
 
     public EventAdd(Socket socket) {
         this.socket = socket;
@@ -73,23 +77,15 @@ public class EventAdd {
                 startTime);
 
         if (id != 0) {
-            //添加成功
-            result = "1";
-
-            //设置二进制文件路径
+            //设置二进制文件路径，然后添加到数据库
             if (setBinaryPath(voice, picture, video, id) != 0) {
-                //将客户端上传的二进制文件存放在本地
-                addbinary(socket, id);
-
-                System.out.println("添加成功");
+                result = "1";
             } else {
                 result = "0";
             }
-
         } else {
             //添加失败
             result = "0";
-            System.out.println("添加失败");
         }
 
         //向客户端返回执行结果
@@ -104,20 +100,6 @@ public class EventAdd {
     }
 
     /**
-     * 将客户端上传的二进制文件存放在本地
-     *
-     * @param socket
-     */
-    public void addbinary(Socket socket, int id) {
-
-        //以返回的id在本地创建目录 (该目录中存放该事件的媒体文件)
-        File file = new File(Constants.EVENTS_PATH + id);
-        if (!file.exists()) {
-            file.mkdirs();
-        }
-    }
-
-    /**
      * 设置二进制文件路径
      *
      * @param voice
@@ -125,10 +107,6 @@ public class EventAdd {
      * @param video
      */
     private int setBinaryPath(String voice, String picture, String video, int id) {
-        //如果文件名为空，路径也为空
-        String voicePath = null;
-        String picPath = null;
-        String videoPath = null;
         picList = new ArrayList<>();
 
         String[] picArr = StringUtils.getArrayFromString(picture);
@@ -155,6 +133,12 @@ public class EventAdd {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        //将id和路径保存到EventId
+        EventId.id = id;
+        EventId.voicePath = voicePath;
+        EventId.picPath = picPath;
+        EventId.videoPath = videoPath;
 
         return rows;
     }

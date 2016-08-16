@@ -23,7 +23,7 @@ public class StreamUtils {
         char[] buffer = new char[20];
         int len = 0;
         try {
-            while((len = inReader.read(buffer)) != -1) {
+            while ((len = inReader.read(buffer)) != -1) {
                 strBuilder.append(buffer, 0, len);
             }
         } catch (IOException e) {
@@ -46,5 +46,31 @@ public class StreamUtils {
 
     public static void close() throws IOException {
         inReader.close();
+    }
+
+    /**
+     * 将文件写入磁盘
+     *
+     * @param path
+     * @param bytes
+     */
+    public static void writeFileToDisk(String path, byte[] bytes) {
+        FileOutputStream fileOut = null;
+        try {
+            fileOut = new FileOutputStream(path);
+            fileOut.write(bytes);
+            fileOut.flush();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fileOut.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

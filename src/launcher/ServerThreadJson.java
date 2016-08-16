@@ -15,11 +15,11 @@ import java.sql.SQLException;
 /**
  * Created by Yohann on 2016/8/11.
  */
-public class ServerThread implements Runnable {
+public class ServerThreadJson implements Runnable {
     private Socket socket;
     private Gson gson;
 
-    public ServerThread(Socket socket) {
+    public ServerThreadJson(Socket socket) {
         this.socket = socket;
         gson = new Gson();
     }

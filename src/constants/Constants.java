@@ -6,9 +6,14 @@ package constants;
 public class Constants {
 
     /**
-     * 主机端口号
+     * 主机端口号(传输Json数据)
      */
-    public static final int PORT = 20000;
+    public static final int PORT_JSON = 20000;
+
+    /**
+     * 主机端口号(传输Java对象)
+     */
+    public static final int PORT_OBJ = 20001;
 
     /**
      * 每个事件的路径
@@ -39,4 +44,9 @@ public class Constants {
      * 获取标记
      */
     public static final String GET_EVENT = "004";
+
+    /**
+     * 上传二进制媒体文件
+     */
+    public static final String ADD_BIN = "005";
 }
