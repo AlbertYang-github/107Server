@@ -8,7 +8,6 @@ import dao.EventDao;
 import utils.StreamUtils;
 import utils.StringUtils;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
@@ -46,6 +45,8 @@ public class EventAdd {
 
         //添加结果，"1"代表成功，"0"代表失败
         String result = null;
+        //向客户端返回的数据
+        String dataReturn = null;
 
         //获取事件的各个信息
         eventBean = gson.fromJson(body, EventBean.class);
@@ -61,7 +62,7 @@ public class EventAdd {
         String voice = eventBean.getVoice();
         String picture = eventBean.getPicture();
         String video = eventBean.getVideo();
-        Timestamp startTime = eventBean.getStartTime();
+        Long startTime = eventBean.getStartTime();
 
         //添加到数据库
         int id = new EventDao().insertEvent(
@@ -88,9 +89,39 @@ public class EventAdd {
             result = "0";
         }
 
+        if ("1".equals(result)) {
+            //执行成功，想客户端返回Json数据
+
+            EventBean eventBean = new EventBean();
+            eventBean.setId(id);
+            eventBean.setStartLocation(startLocation);
+            eventBean.setEndLocation(endLocation);
+            eventBean.setStartLongitude(startLongitude);
+            eventBean.setEndLongitude(endLongitude);
+            eventBean.setStartLatitude(startLatitude);
+            eventBean.setEndLatitude(endLatitude);
+            eventBean.setEventLabels(eventLabels);
+            eventBean.setEventTitle(eventTitle);
+            eventBean.setEventDesc(eventDesc);
+            eventBean.setVoice(voice);
+            eventBean.setPicture(picture);
+            eventBean.setVideo(video);
+            eventBean.setVoicePath(voicePath);
+            eventBean.setPicPath(picPath);
+            eventBean.setVideo(videoPath);
+            eventBean.setStartTime(startTime);
+
+            //生成Json串
+            dataReturn = gson.toJson(eventBean);
+
+        } else {
+            //执行失败，返回"error"
+            dataReturn = "error";
+        }
+
         //向客户端返回执行结果
         OutputStream out = socket.getOutputStream();
-        StreamUtils.writeString(out, result);
+        StreamUtils.writeString(out, dataReturn);
         socket.shutdownOutput();
 
         //关闭流和socket
@@ -107,10 +138,10 @@ public class EventAdd {
      * @param video
      */
     private int setBinaryPath(String voice, String picture, String video, int id) {
-        picList = new ArrayList<>();
 
         String[] picArr = StringUtils.getArrayFromString(picture);
         if (picArr != null) {
+            picList = new ArrayList<>();
             for (int i = 0; i < picArr.length; i++) {
                 picList.add(Constants.EVENTS_PATH + id + "/" + picArr[i]);
             }

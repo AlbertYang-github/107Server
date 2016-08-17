@@ -57,7 +57,7 @@ public class EventDao {
                            String eventLabels,
                            String eventTitle,
                            String eventDesc,
-                           Timestamp startTime) {
+                           long startTime) {
 
         String sql = "INSERT INTO events (" +
                 "start_location," +
@@ -88,7 +88,7 @@ public class EventDao {
             pstmt.setString(7, eventLabels);
             pstmt.setString(8, eventTitle);
             pstmt.setString(9, eventDesc);
-            pstmt.setTimestamp(10, startTime);
+            pstmt.setTimestamp(10, new Timestamp(startTime));
 
             pstmt.executeUpdate();
             resultSet = pstmt.getGeneratedKeys();

@@ -5,11 +5,13 @@ import com.google.gson.Gson;
 import constants.Constants;
 import reqtype.EventAddBin;
 
+import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.net.Socket;
 import java.sql.SQLException;
+import java.util.zip.GZIPInputStream;
 
 /**
  * Created by Yohann on 2016/8/16.
@@ -29,7 +31,7 @@ public class ServerThreadObj implements Runnable {
             try {
                 //获取客户端发送的数据 (Json格式的字符串)
                 InputStream in = socket.getInputStream();
-                ObjectInputStream objIn = new ObjectInputStream(in);
+                ObjectInputStream objIn = new ObjectInputStream(new BufferedInputStream(in));
                 BinaryBean binaryBean = (BinaryBean) objIn.readObject();
 
                 //获取头信息
