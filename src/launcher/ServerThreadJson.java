@@ -2,7 +2,7 @@ package launcher;
 
 import com.google.gson.Gson;
 import constants.Constants;
-import reqtype.EventAdd;
+import reqtype.EventAddText;
 import reqtype.Login;
 import reqtype.Register;
 import utils.StreamUtils;
@@ -13,58 +13,56 @@ import java.net.Socket;
 import java.sql.SQLException;
 
 /**
+ * 处理Json数据
+ * <p>
  * Created by Yohann on 2016/8/11.
  */
 public class ServerThreadJson implements Runnable {
     private Socket socket;
     private Gson gson;
+    private String task;
+    private InputStream in;
 
-    public ServerThreadJson(Socket socket) {
+    public ServerThreadJson(Socket socket, InputStream in, String task) {
         this.socket = socket;
+        this.in = in;
+        this.task = task;
         gson = new Gson();
     }
 
     @Override
     public void run() {
-        if (socket != null) {
-            try {
-                //获取客户端发送的数据 (Json格式的字符串)
-                InputStream in = socket.getInputStream();
-                String data = StreamUtils.readString(in);
+        try {
+            //读取Json格式的字符串
+            String data = StreamUtils.readString(in);
+            System.out.println("data=" + data);
 
-                String header = data.substring(0, 3);
-                String body = data.substring(3);
+            //判断任务类型
+            switch (task) {
+                //注册
+                case Constants.REGISTER:
+                    System.out.println("执行注册任务");
+                    new Register(socket).register(data);
+                    break;
 
-                System.out.println("header=" + header);
-                System.out.println("body=" + body);
+                //登录
+                case Constants.LOGIN:
+                    System.out.println("执行登录任务");
+                    new Login(socket).login(data);
+                    break;
 
-                //判断任务类型
-                switch (header) {
-                    //注册
-                    case Constants.REGISTER:
-                        System.out.println("执行注册任务");
-                        new Register(socket).register(body);
-                        break;
-
-                    //登录
-                    case Constants.LOGIN:
-                        System.out.println("执行登录任务");
-                        new Login(socket).login(body);
-                        break;
-
-                    //添加107端上传的事件
-                    case Constants.ADD_EVENT:
-                        System.out.println("添加107端上传的事件");
-                        new EventAdd(socket).addEvent(body);
-                        break;
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            } //注意：这里不能立刻关闭流资源，因为直接用传统方式关闭流后socket也会被关闭
-        }
+                //添加107端上传的事件的文本信息
+                case Constants.ADD_EVENT_TEXT:
+                    System.out.println("添加107端上传的事件的文本信息");
+                    new EventAddText(socket).addEvent(data);
+                    break;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } //注意：这里不能立刻关闭流资源，因为直接用传统方式关闭流后socket也会被关闭
     }
 }

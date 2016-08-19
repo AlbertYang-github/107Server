@@ -41,13 +41,13 @@ public class Login {
             //获取用户信息
             msgReturn = userLogin.getMsg(username);
         }
-        System.out.println("msgReturn = " + msgReturn);
 
         //向客户端返回登录结果
         OutputStream out = socket.getOutputStream();
         StreamUtils.writeString(out, msgReturn);
         socket.shutdownOutput();
 
+        System.out.println("msgReturn = " + msgReturn);
         //关闭流和socket
         out.close();
         StreamUtils.close();

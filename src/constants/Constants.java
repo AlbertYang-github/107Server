@@ -11,11 +11,6 @@ public class Constants {
     public static final int PORT_JSON = 20000;
 
     /**
-     * 主机端口号(传输Java对象)
-     */
-    public static final int PORT_OBJ = 20001;
-
-    /**
      * 每个事件的路径
      */
     public static final String EVENTS_PATH = "D:/107Server/107Files/Events/";
@@ -24,6 +19,16 @@ public class Constants {
      * 用户个人目录
      */
     public static final String USERS_PATH = "D:/107Server/107Files/Users/";
+
+    /**
+     * Json数据类型
+     */
+    public static final String TYPE_JSON = "json";
+
+    /**
+     * Byte数据类型
+     */
+    public static final String TYPE_BYTE = "byte";
 
     /**
      * 注册
@@ -36,17 +41,12 @@ public class Constants {
     public static final String LOGIN = "002";
 
     /**
-     * 添加标记
+     * 添加事件的文本信息
      */
-    public static final String ADD_EVENT = "003";
+    public static final String ADD_EVENT_TEXT = "003";
 
     /**
-     * 获取标记
+     * 添加事件的二进制文件
      */
-    public static final String GET_EVENT = "004";
-
-    /**
-     * 上传二进制媒体文件
-     */
-    public static final String ADD_BIN = "005";
+    public static final String ADD_EVENT_BIN = "004";
 }

@@ -55,6 +55,7 @@ public class UserDaoTemp {
                 "voice_path VARCHAR(500)," +
                 "picture_path VARCHAR(500)," +
                 "video_path VARCHAR(500)," +
+                "zip_path VARCHAR(500)," +
                 "start_time DATETIME NOT NULL" +
                 ")";
 

@@ -1,10 +1,12 @@
 package test;
 
-import dao.EventDao;
 import org.junit.Test;
+import utils.DetectionUtils;
 
-import java.sql.SQLException;
-import java.sql.Timestamp;
+import java.awt.*;
+import java.io.File;
+import java.net.FileNameMap;
+import java.net.URLConnection;
 
 /**
  * Created by Yohann on 2016/8/11.
@@ -12,5 +14,7 @@ import java.sql.Timestamp;
 public class ServerTest {
     @Test
     public void test() {
+        String s = DetectionUtils.detectFileFormat(new File("F:/video.avi"));
+        System.out.println(s);
     }
 }

@@ -1,6 +1,8 @@
 package utils;
 
 import java.io.*;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 /**
  * 流解析工具
@@ -11,6 +13,11 @@ public class StreamUtils {
 
     private static InputStreamReader inReader;
 
+    //字符缓冲区大小
+    private static final int BUFFER_CHAR = 100;
+    //字节缓冲区大小
+    private static final int BUFFER_BYTE = 1024 * 500;
+
     /**
      * 从流中获取字符串
      *
@@ -20,7 +27,7 @@ public class StreamUtils {
     public static String readString(InputStream in) throws UnsupportedEncodingException {
         inReader = new InputStreamReader(in, "UTF-8");
         StringBuilder strBuilder = new StringBuilder();
-        char[] buffer = new char[20];
+        char[] buffer = new char[BUFFER_CHAR];
         int len = 0;
         try {
             while ((len = inReader.read(buffer)) != -1) {
@@ -52,15 +59,18 @@ public class StreamUtils {
      * 将文件写入磁盘
      *
      * @param path
-     * @param bytes
+     * @param in
      */
-    public static void writeFileToDisk(String path, byte[] bytes) {
+    public static void writeFileToDisk(String path, InputStream in) {
         FileOutputStream fileOut = null;
         try {
             fileOut = new FileOutputStream(path);
-            fileOut.write(bytes);
-            fileOut.flush();
-
+            int len = 0;
+            byte[] buf = new byte[BUFFER_BYTE];
+            while ((len = in.read(buf)) != -1) {
+                fileOut.write(buf, 0, len);
+                fileOut.flush();
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -70,6 +80,46 @@ public class StreamUtils {
                 fileOut.close();
             } catch (IOException e) {
                 e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * 解压缩目录
+     *
+     * @param desDir
+     * @param in
+     * @throws IOException
+     */
+    public static void decompress(File desDir, InputStream in) throws IOException {
+        if (!desDir.exists()) {
+            desDir.mkdirs();
+        }
+
+        BufferedOutputStream bos = null;
+        ZipInputStream zis = new ZipInputStream(in);
+        ZipEntry entry = null;
+
+        try {
+            while ((entry = zis.getNextEntry()) != null) {
+                String path = desDir + "/" + entry.getName();
+                File file = new File(path);
+                bos = new BufferedOutputStream(
+                        new FileOutputStream(file));
+                int len = 0;
+                byte[] buf = new byte[BUFFER_BYTE];
+                while ((len = zis.read(buf)) != -1) {
+                    bos.write(buf, 0, len);
+                    bos.flush();
+                }
+            }
+        } catch (IOException e) {
+        } finally {
+            if (bos != null) {
+                bos.close();
+            }
+            if (zis != null) {
+                zis.close();
             }
         }
     }

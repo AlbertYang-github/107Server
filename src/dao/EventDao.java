@@ -118,9 +118,9 @@ public class EventDao {
      * @param videoPath
      * @return
      */
-    public int addBinaryPath(String voicePath, String picPath, String videoPath, int id) {
+    public int addBinaryPath(String voicePath, String picPath, String videoPath, String zipPath, int id) {
 
-        String sql = "UPDATE events SET voice_path = ?, picture_path = ?, video_path = ? WHERE id = ?";
+        String sql = "UPDATE events SET voice_path = ?, picture_path = ?, video_path = ?, zip_path = ? WHERE id = ?";
         int rows = 0;
         PreparedStatement pstmt = null;
 
@@ -129,7 +129,8 @@ public class EventDao {
             pstmt.setString(1, voicePath);
             pstmt.setString(2, picPath);
             pstmt.setString(3, videoPath);
-            pstmt.setInt(4, id);
+            pstmt.setString(4, zipPath);
+            pstmt.setInt(5, id);
             rows = pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
