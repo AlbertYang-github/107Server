@@ -1,6 +1,6 @@
 package reqtype;
 
-import bean.EventId;
+import constants.Variable;
 import constants.Constants;
 import dao.EventDao;
 import utils.DetectionUtils;
@@ -30,13 +30,13 @@ public class EventAddBin {
     public void addBin() throws IOException, SQLException, ClassNotFoundException {
 
         //以返回的id在本地创建目录 (该目录中存放该事件的媒体文件)
-        File file = new File(Constants.EVENTS_PATH + EventId.id);
+        File file = new File(Constants.EVENTS_PATH + Variable.eventId);
         if (!file.exists()) {
             file.mkdirs();
         }
 
         //将zip文件写入磁盘
-        StreamUtils.writeFileToDisk(Constants.EVENTS_PATH + EventId.id + ".zip", in);
+        StreamUtils.writeFileToDisk(Constants.EVENTS_PATH + Variable.eventId + ".zip", in);
 
         //向客户端返回执行结果
         OutputStream out = socket.getOutputStream();
@@ -59,8 +59,8 @@ public class EventAddBin {
      */
     public void after() throws IOException, SQLException, ClassNotFoundException {
         //解压
-        FileInputStream fis = new FileInputStream(Constants.EVENTS_PATH + EventId.id + ".zip");
-        StreamUtils.decompress(new File(Constants.EVENTS_PATH + EventId.id), fis);
+        FileInputStream fis = new FileInputStream(Constants.EVENTS_PATH + Variable.eventId + ".zip");
+        StreamUtils.decompress(new File(Constants.EVENTS_PATH + Variable.eventId), fis);
         fis.close();
         System.out.println("解压完成");
 
@@ -68,10 +68,10 @@ public class EventAddBin {
         String voicePath = null;
         String picPath = null;
         String videoPath = null;
-        String zipPath = Constants.EVENTS_PATH + EventId.id + ".zip";
+        String zipPath = Constants.EVENTS_PATH + Variable.eventId + ".zip";
         ArrayList<String> picPathList = new ArrayList<>();
 
-        File dir = new File(Constants.EVENTS_PATH + EventId.id);
+        File dir = new File(Constants.EVENTS_PATH + Variable.eventId);
         File[] files = dir.listFiles();
         for (int i = 0; i < files.length; i++) {
             File file = files[i];
@@ -91,6 +91,6 @@ public class EventAddBin {
         picPath = StringUtils.getStringFromArrayList(picPathList);
 
         //将路径添加到数据库中
-        new EventDao().addBinaryPath(voicePath, picPath, videoPath, zipPath, EventId.id);
+        new EventDao().addBinaryPath(voicePath, picPath, videoPath, zipPath, Variable.eventId);
     }
 }

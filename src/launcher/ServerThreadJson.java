@@ -3,9 +3,11 @@ package launcher;
 import com.google.gson.Gson;
 import constants.Constants;
 import reqtype.EventAddText;
+import reqtype.EventReqText;
 import reqtype.Login;
 import reqtype.Register;
 import utils.StreamUtils;
+import utils.StringUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -56,6 +58,10 @@ public class ServerThreadJson implements Runnable {
                     System.out.println("添加107端上传的事件的文本信息");
                     new EventAddText(socket).addEvent(data);
                     break;
+
+                case Constants.GET_EVENT_TEXT:
+                    StringUtils.print("客户端请求事件的基本信息");
+                    new EventReqText(socket).HandleReq(data);
             }
         } catch (IOException e) {
             e.printStackTrace();

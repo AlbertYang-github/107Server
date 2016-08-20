@@ -1,6 +1,7 @@
 package launcher;
 
 import constants.Constants;
+import push.PushSocket;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,6 +21,25 @@ public class Launcher {
      */
     public static void main(String[] args) {
 
+        //负责接收请求推送socket的线程
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    ServerSocket serverSocketPush = new ServerSocket(Constants.PORT_PUSH);
+                    System.out.println("---------------- 端口PORT_PUSH(20001)启动监听 (推送消息)---------------");
+                    while (true) {
+                        //等待客户端连接
+                        Socket socket = serverSocketPush.accept();
+                        //每当连接一个处理推送任务的socket时，就存放在map集合中管理 (key=value: ip=socket)
+                        PushSocket.addSocket(socket);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+
         /**
          * 自定义通讯协议
          * 客户端发来的数据内容之前都会有7个字节头信息
@@ -27,7 +47,7 @@ public class Launcher {
          */
         ServerSocket serverSocketPortJson = null;
         try {
-            serverSocketPortJson = new ServerSocket(Constants.PORT_JSON);
+            serverSocketPortJson = new ServerSocket(Constants.PORT_BASIC);
             System.out.println("---------------- 端口PORT_JSON(20000)启动监听 (TCP)---------------");
             while (true) {
                 //等待客户端连接

@@ -1,9 +1,10 @@
 package reqtype;
 
 import bean.EventBean;
-import bean.EventId;
 import com.google.gson.Gson;
+import constants.Variable;
 import dao.EventDao;
+import push.PushSocket;
 import utils.StreamUtils;
 
 import java.io.IOException;
@@ -51,6 +52,9 @@ public class EventAddText {
         String eventDesc = eventBean.getEventDesc();
         Long startTime = eventBean.getStartTime();
 
+        //调用推送方法
+        PushSocket.push(body);
+
         //添加到数据库
         int id = new EventDao().insertEvent(
                 startLocation,
@@ -66,7 +70,7 @@ public class EventAddText {
 
         if (id != 0) {
             //将id和保存到EventId
-            EventId.id = id;
+            Variable.eventId = id;
             result = "1";
         } else {
             //添加失败
