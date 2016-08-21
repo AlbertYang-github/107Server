@@ -7,6 +7,7 @@ import loginreg.UserLogin;
 import utils.StreamUtils;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.sql.SQLException;
@@ -18,10 +19,12 @@ public class Login {
     private Socket socket;
     private Gson gson;
     private UserBean userBean;
+    private InputStream in;
 
-    public Login(Socket socket) {
+    public Login(Socket socket, InputStream in) {
         this.socket = socket;
         gson = new Gson();
+        this.in = in;
     }
 
     public void login(String body) throws SQLException, ClassNotFoundException, IOException {
@@ -50,6 +53,7 @@ public class Login {
         System.out.println("msgReturn = " + msgReturn);
         //关闭流和socket
         out.close();
+        in.close();
         StreamUtils.close();
         socket.close();
     }

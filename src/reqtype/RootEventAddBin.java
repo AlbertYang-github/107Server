@@ -15,11 +15,11 @@ import java.util.ArrayList;
 /**
  * Created by Yohann on 2016/8/16.
  */
-public class EventAddBin {
+public class RootEventAddBin {
     private Socket socket;
     private InputStream in;
 
-    public EventAddBin(Socket socket, InputStream in) {
+    public RootEventAddBin(Socket socket, InputStream in) {
         this.socket = socket;
         this.in = in;
     }
@@ -61,7 +61,6 @@ public class EventAddBin {
         //解压
         FileInputStream fis = new FileInputStream(Constants.EVENTS_PATH + Variable.eventId + ".zip");
         StreamUtils.decompress(new File(Constants.EVENTS_PATH + Variable.eventId), fis);
-        fis.close();
         System.out.println("解压完成");
 
         //指定文件路径
@@ -78,13 +77,13 @@ public class EventAddBin {
             String type = DetectionUtils.detectFileFormat(file);
             switch (type) {
                 case "voice":
-                    voicePath = file.getAbsolutePath();
+                    voicePath = file.getCanonicalPath();
                     break;
                 case "picture":
-                    picPathList.add(file.getAbsolutePath());
+                    picPathList.add(file.getCanonicalPath());
                     break;
                 case "video":
-                    videoPath = file.getAbsolutePath();
+                    videoPath = file.getCanonicalPath();
                     break;
             }
         }

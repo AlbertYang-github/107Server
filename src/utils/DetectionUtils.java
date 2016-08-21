@@ -11,7 +11,6 @@ import java.util.Map;
  */
 public class DetectionUtils {
     private static Map<String, String> fomatMap = new HashMap<>();
-    ;
 
     /**
      * 检测音频，视频，图片

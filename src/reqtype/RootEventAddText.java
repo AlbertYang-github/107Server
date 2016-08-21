@@ -8,6 +8,7 @@ import push.PushSocket;
 import utils.StreamUtils;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.sql.SQLException;
@@ -17,14 +18,16 @@ import java.sql.SQLException;
  * <p>
  * Created by Yohann on 2016/8/13.
  */
-public class EventAddText {
+public class RootEventAddText {
     private Socket socket;
     private EventBean eventBean;
     private Gson gson;
+    private InputStream in;
 
-    public EventAddText(Socket socket) {
+    public RootEventAddText(Socket socket, InputStream in) {
         this.socket = socket;
         gson = new Gson();
+        this.in = in;
     }
 
     /**
@@ -99,6 +102,7 @@ public class EventAddText {
         System.out.println("dataReturn = " + dataReturn);
         //关闭流和socket
         out.close();
+        in.close();
         StreamUtils.close();
         socket.close();
     }

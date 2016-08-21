@@ -1,5 +1,7 @@
 package constants;
 
+import java.io.File;
+
 /**
  * Created by Yohann on 2016/8/11.
  */
@@ -18,12 +20,18 @@ public class Constants {
     /**
      * 每个事件的路径
      */
-    public static final String EVENTS_PATH = "D:/107Server/107Files/Events/";
+    public static final String EVENTS_PATH = "D:" + File.separator +
+            "107Server" + File.separator +
+            "107Files" + File.separator +
+            "Events" + File.separator;
 
     /**
      * 用户个人目录
      */
-    public static final String USERS_PATH = "D:/107Server/107Files/Users/";
+    public static final String USERS_PATH = "D:" + File.separator +
+            "107Server" + File.separator +
+            "107Files" + File.separator +
+            "User" + File.separator;
 
     /**
      * Json数据类型
@@ -61,7 +69,7 @@ public class Constants {
     public static final String GET_EVENT_TEXT = "005";
 
     /**
-     * 建立一个socket等待服务器推送消息
+     * 删除信息
      */
-    public static final String DATA_PUSH = "006";
+    public static final String REMOVE_EVENT = "006";
 }

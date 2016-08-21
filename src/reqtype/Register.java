@@ -6,6 +6,7 @@ import loginreg.UserReg;
 import utils.StreamUtils;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.sql.SQLException;
@@ -17,10 +18,12 @@ public class Register {
     private Socket socket;
     private UserBean userBean;
     private Gson gson;
+    private InputStream in;
 
-    public Register(Socket socket) {
+    public Register(Socket socket, InputStream in) {
         this.socket = socket;
         gson = new Gson();
+        this.in = in;
     }
 
     public void register(String body) throws SQLException, ClassNotFoundException, IOException {
@@ -49,6 +52,7 @@ public class Register {
         System.out.println("msgReturn = " + msgReturn);
         //关闭流和socket
         out.close();
+        in.close();
         StreamUtils.close();
         socket.close();
     }

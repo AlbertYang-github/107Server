@@ -12,26 +12,25 @@ import java.util.*;
 public class ServerTest {
     @Test
     public void test() {
-        List<Map> list = new ArrayList<>();
-//        List<String> list = new ArrayList<>();
+//        List<Map> list = new ArrayList<>();
+        List<String> list = new ArrayList<>();
 
-        Map map1 = new HashMap();
-        map1.put("name", "张三");
-        map1.put("phone", 123);
+//        Map map1 = new HashMap();
+//        map1.put("name", "张三");
+//        map1.put("phone", 123);
+//
+//        Map map2 = new HashMap();
+//        map2.put("name", "李四");
+//        map2.put("phone", 321);
+//
+//        list.add(map1);
+//        list.add(map2);
 
-        Map map2 = new HashMap();
-        map2.put("name", "李四");
-        map2.put("phone", 321);
 
-        list.add(map1);
-        list.add(map2);
+        list.add("张三");
+        list.add("李四");
+        list.add("李四");
 
-
-//        list.add("张三");
-//        list.add("李四");
-
-        Gson gson = new Gson();
-//        gson.fromJson("")
-//        System.out.println(json);
+        System.out.println(list);
     }
 }

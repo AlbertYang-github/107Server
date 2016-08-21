@@ -88,39 +88,38 @@ public class StreamUtils {
      * 解压缩目录
      *
      * @param desDir
-     * @param in
+     * @param fis
      * @throws IOException
      */
-    public static void decompress(File desDir, InputStream in) throws IOException {
+    public static void decompress(File desDir, FileInputStream fis) throws IOException {
         if (!desDir.exists()) {
             desDir.mkdirs();
         }
 
         BufferedOutputStream bos = null;
-        ZipInputStream zis = new ZipInputStream(in);
+        FileOutputStream fos = null;
+        ZipInputStream zis = new ZipInputStream(fis);
         ZipEntry entry = null;
 
         try {
             while ((entry = zis.getNextEntry()) != null) {
-                String path = desDir + "/" + entry.getName();
+                String path = desDir + File.separator + entry.getName();
                 File file = new File(path);
-                bos = new BufferedOutputStream(
-                        new FileOutputStream(file));
+                fos = new FileOutputStream(file);
+                bos = new BufferedOutputStream(fos);
                 int len = 0;
                 byte[] buf = new byte[BUFFER_BYTE];
                 while ((len = zis.read(buf)) != -1) {
                     bos.write(buf, 0, len);
                     bos.flush();
                 }
+                bos.close();
+                fos.close();
             }
         } catch (IOException e) {
         } finally {
-            if (bos != null) {
-                bos.close();
-            }
-            if (zis != null) {
-                zis.close();
-            }
+            zis.close();
+            fis.close();
         }
     }
 }
