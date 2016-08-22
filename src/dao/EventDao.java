@@ -1,12 +1,11 @@
 package dao;
 
 import bean.EventBean;
+import bean.PathBean;
 import com.google.gson.Gson;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Properties;
 
 /**
@@ -199,7 +198,7 @@ public class EventDao {
     }
 
     /**
-     * 添加二进制文件路径
+     * 添加二进制文件路径 (events)
      *
      * @param voicePath
      * @param picPath
@@ -242,6 +241,50 @@ public class EventDao {
         }
 
         return rows + rowsFin;
+    }
+
+    /**
+     * 将Web资源添加到表resource_path中
+     *
+     * @param voicePathR
+     * @param picPathR1
+     * @param picPathR2
+     * @param picPathR3
+     * @param videoPathR
+     * @return
+     */
+    public int addWebResourcePath(int id,
+                                  String voicePathR, String picPathR1, String picPathR2, String picPathR3, String videoPathR,
+                                  String voiceUrl, String picUrl1, String picUrl2, String picUrl3, String videoUrl) {
+        String sql = "INSERT INTO resource_path VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        int rows = 0;
+        PreparedStatement pstmt = null;
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, id);
+            pstmt.setString(2, voicePathR);
+            pstmt.setString(3, picPathR1);
+            pstmt.setString(4, picPathR2);
+            pstmt.setString(5, picPathR3);
+            pstmt.setString(6, videoPathR);
+            pstmt.setString(7, voiceUrl);
+            pstmt.setString(8, picUrl1);
+            pstmt.setString(9, picUrl2);
+            pstmt.setString(10, picUrl3);
+            pstmt.setString(11, videoUrl);
+            rows = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                pstmt.close();
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return rows;
     }
 
     /**
@@ -293,24 +336,28 @@ public class EventDao {
     }
 
     /**
-     * 查询一条事件的文件路径
+     * 查询媒体文件的加载路径 (仅一条)
      *
      * @return 所有文件路径
      */
-    public Map<String, String> queryPath(int id) {
-        String sql = "SELECT * FROM events WHERE id = ?";
+    public String queryLoadPath(int id) {
+        String sql = "SELECT * FROM resource_path WHERE id = ?";
         PreparedStatement pstmt = null;
         ResultSet resultSet = null;
-        Map<String, String> pathMap = new HashMap<>();
+        String path = null;
         try {
             pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, id);
             resultSet = pstmt.executeQuery();
             if (resultSet.next()) {
-                pathMap.put("voice_path", resultSet.getString("voice_path"));
-                pathMap.put("picture_path", resultSet.getString("picture_path"));
-                pathMap.put("video_path", resultSet.getString("video_path"));
-                pathMap.put("zip_path", resultSet.getString("zip_path"));
+                PathBean pathBean = new PathBean();
+                pathBean.setId(id);
+                pathBean.setVoicePath(resultSet.getString("voice_url"));
+                pathBean.setPicPath1(resultSet.getString("pic_url_1"));
+                pathBean.setPicPath2(resultSet.getString("pic_url_2"));
+                pathBean.setPicPath3(resultSet.getString("pic_url_3"));
+                pathBean.setVideoPath(resultSet.getString("video_url"));
+                path = gson.toJson(pathBean);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -324,7 +371,7 @@ public class EventDao {
             }
         }
 
-        return pathMap;
+        return path;
     }
 
     /**

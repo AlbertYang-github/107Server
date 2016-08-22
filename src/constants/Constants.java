@@ -34,6 +34,20 @@ public class Constants {
             "User" + File.separator;
 
     /**
+     * 服务器资源路径
+     */
+    public static final String RESOURCE_PATH = "D:" + File.separator +
+            "apache-tomcat-8.0.36" + File.separator +
+            "webapps" + File.separator +
+            "107Server" + File.separator;
+
+    /**
+     * 资源加载路径
+     */
+    public static final String LOAD_PATH = "123.206.8.57:8080" + File.separator +
+            "107Server" + File.separator;
+
+    /**
      * Json数据类型
      */
     public static final String TYPE_JSON = "json";
@@ -72,4 +86,9 @@ public class Constants {
      * 删除信息
      */
     public static final String REMOVE_EVENT = "006";
+
+    /**
+     * 获取在线加载媒体文件的路径
+     */
+    public static final String GET_LOAD_PATH = "007";
 }

@@ -34,6 +34,11 @@ public class DetectionUtils {
         int index = filepath.lastIndexOf(".");
         String postfix = filepath.substring(index);
         String type = fomatMap.get(postfix);
+
+        if (type == null) {
+            type = "unknown";
+        }
+
         return type;
     }
 }

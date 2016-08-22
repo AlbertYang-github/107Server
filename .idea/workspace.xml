@@ -30,15 +30,13 @@
     <favorites_list name="107server" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="RootEventRemove.java" pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="RootEventRemove.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/reqtype/RootEventRemove.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="109">
+              <caret line="29" column="6" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -46,90 +44,32 @@
       <file leaf-file-name="EventDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dao/EventDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="351" column="33" selection-start-line="351" selection-start-column="33" selection-end-line="351" selection-end-column="33" />
+            <state relative-caret-position="-111">
+              <caret line="313" column="64" selection-start-line="313" selection-start-column="64" selection-end-line="313" selection-end-column="64" />
               <folding>
-                <marker date="1471774232177" expanded="true" signature="1743:2156" ph="INSERT INTO events... " />
-                <marker date="1471774232177" expanded="true" signature="4413:4465" ph="INSERT INTO events_records... " />
-                <marker date="1471774232177" expanded="true" signature="4413:4791" ph="INSERT INTO events... " />
-                <marker date="1471774232177" expanded="true" signature="5932:6025" ph="UPDATE event... " />
-                <marker date="1471774232177" expanded="true" signature="6056:6157" ph="UPDATE event... " />
-                <marker date="1471774232177" expanded="true" signature="7281:7301" ph="SELECT * FRO... events" />
-                <marker date="1471774232177" expanded="true" signature="8985:9006" ph="SELECT * FRO... events" />
-                <marker date="1471774232177" expanded="true" signature="8985:9011" ph="SELECT * FRO... events" />
-                <marker date="1471774232177" expanded="true" signature="8985:9018" ph="SELECT * FRO... events" />
-                <marker date="1471774232177" expanded="true" signature="10133:10164" ph="DELETE FROM " />
-                <marker date="1471774232177" expanded="true" signature="10195:10246" ph="UPDATE event... " />
+                <element signature="imports" expanded="true" />
+                <marker date="1471839443732" expanded="true" signature="1717:2130" ph="INSERT INTO events... " />
+                <marker date="1471839443732" expanded="true" signature="4387:4439" ph="INSERT INTO events_records... " />
+                <marker date="1471839443732" expanded="true" signature="4387:4765" ph="INSERT INTO events... " />
+                <marker date="1471839443732" expanded="true" signature="5915:6008" ph="UPDATE event... " />
+                <marker date="1471839443732" expanded="true" signature="6039:6140" ph="UPDATE event... " />
+                <marker date="1471839443732" expanded="true" signature="7643:7709" ph="UPDATE event... " />
+                <marker date="1471839443732" expanded="true" signature="8754:8774" ph="SELECT * FRO... events" />
+                <marker date="1471839443732" expanded="true" signature="10455:10483" ph="SELECT * FRO... events" />
+                <marker date="1471839443732" expanded="true" signature="10455:10488" ph="SELECT * FRO... events" />
+                <marker date="1471839443732" expanded="true" signature="10455:10495" ph="SELECT * FRO... events" />
+                <marker date="1471839443732" expanded="true" signature="11764:11795" ph="DELETE FROM " />
+                <marker date="1471839443732" expanded="true" signature="11826:11877" ph="UPDATE event... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PreparedStatement.java" pinned="false" current-in-tab="false">
-        <entry file="jar://D:/JavaDevTools/JDK_1.8_64/Installed/src.zip!/java/sql/PreparedStatement.java">
+      <file leaf-file-name="LoadPathReq.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/reqtype/LoadPathReq.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="94" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserDaoTemp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dao/UserDaoTemp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="49" column="51" selection-start-line="49" selection-start-column="51" selection-end-line="49" selection-end-column="51" />
-              <folding>
-                <marker date="1471576919452" expanded="true" signature="916:1745" ph="CREATE TABLE... missingValue_events" />
-                <marker date="1471576919452" expanded="true" signature="1772:2073" ph="CREATE TABLE... missingValue_track" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ServerThreadJson.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/launcher/ServerThreadJson.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RootEventAddText.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/reqtype/RootEventAddText.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dao/UserDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="191" column="32" selection-start-line="191" selection-start-column="32" selection-end-line="191" selection-end-column="32" />
-              <folding>
-                <marker date="1471253524338" expanded="true" signature="926:1743" ph="CREATE TABLE... missingValue_events" />
-                <marker date="1471253524338" expanded="true" signature="1770:2071" ph="CREATE TABLE... missingValue_track" />
-                <marker date="1471253524338" expanded="true" signature="2732:2792" ph="INSERT INTO user... " />
-                <marker date="1471253524338" expanded="true" signature="3541:3578" ph="SELECT * FRO... USER" />
-                <marker date="1471253524338" expanded="true" signature="4328:4365" ph="SELECT * FRO... USER" />
-                <marker date="1471253524338" expanded="true" signature="5171:5208" ph="SELECT * FRO... USER" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RootEventAddBin.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/reqtype/RootEventAddBin.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="76" column="63" selection-start-line="76" selection-start-column="63" selection-end-line="76" selection-end-column="63" />
+            <state relative-caret-position="381">
+              <caret line="37" column="43" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -137,21 +77,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DetectionUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utils/DetectionUtils.java">
+      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/constants/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+            <state relative-caret-position="297">
+              <caret line="50" column="15" selection-start-line="50" selection-start-column="15" selection-end-line="50" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StreamUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utils/StreamUtils.java">
+      <file leaf-file-name="RootEventAddBin.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/reqtype/RootEventAddBin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="63" column="34" selection-start-line="63" selection-start-column="34" selection-end-line="63" selection-end-column="34" />
+            <state relative-caret-position="391">
+              <caret line="74" column="21" selection-start-line="74" selection-start-column="21" selection-end-line="74" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RootEventAddText.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/reqtype/RootEventAddText.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-95">
+              <caret line="69" column="27" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -180,7 +132,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/loginReg/UserLogin.java" />
         <option value="$PROJECT_DIR$/src/bean/UserLoginData.java" />
         <option value="$PROJECT_DIR$/src/loginReg/UserReg.java" />
         <option value="$PROJECT_DIR$/src/bean/UserRegData.java" />
@@ -223,14 +174,15 @@
         <option value="$PROJECT_DIR$/src/reqtype/EventAddText.java" />
         <option value="$PROJECT_DIR$/src/reqtype/EventReqText.java" />
         <option value="$PROJECT_DIR$/src/reqtype/RootEventAddText.java" />
-        <option value="$PROJECT_DIR$/src/launcher/ServerThreadJson.java" />
-        <option value="$PROJECT_DIR$/src/constants/Constants.java" />
         <option value="$PROJECT_DIR$/src/utils/StringUtils.java" />
-        <option value="$PROJECT_DIR$/src/utils/DetectionUtils.java" />
         <option value="$PROJECT_DIR$/src/utils/StreamUtils.java" />
+        <option value="$PROJECT_DIR$/src/reqtype/RootEventRemove.java" />
+        <option value="$PROJECT_DIR$/src/utils/DetectionUtils.java" />
+        <option value="$PROJECT_DIR$/src/launcher/ServerThreadJson.java" />
+        <option value="$PROJECT_DIR$/src/reqtype/LoadPathReq.java" />
+        <option value="$PROJECT_DIR$/src/constants/Constants.java" />
         <option value="$PROJECT_DIR$/src/reqtype/RootEventAddBin.java" />
         <option value="$PROJECT_DIR$/src/dao/EventDao.java" />
-        <option value="$PROJECT_DIR$/src/reqtype/RootEventRemove.java" />
       </list>
     </option>
   </component>
@@ -281,9 +233,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -470,6 +420,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bean" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="107Server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="107Server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="out" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -498,6 +466,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -512,8 +482,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="push" />
       <recent name="bean" />
+      <recent name="push" />
       <recent name="utils" />
       <recent name="dao" />
       <recent name="loginReg" />
@@ -999,7 +969,8 @@
       <workItem from="1471391969179" duration="13718000" />
       <workItem from="1471424232761" duration="7889000" />
       <workItem from="1471476171007" duration="55855000" />
-      <workItem from="1471651736636" duration="44897000" />
+      <workItem from="1471651736636" duration="47082000" />
+      <workItem from="1471822569438" duration="15801000" />
     </task>
     <servers />
   </component>
@@ -1036,7 +1007,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="256429000" />
+    <option name="totallyTimeSpent" value="274415000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1608" y="-213" width="1616" height="876" extended-state="6" />
@@ -1050,7 +1021,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6689944" sideWeight="0.5025707" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969153" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8198324" sideWeight="0.4974293" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7569832" sideWeight="0.4974293" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1118,14 +1089,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/classes/META-INF/MANIFEST.MF" />
-    <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/hello/my.java" />
     <entry file="jar://D:/JavaDevTools/JDK_1.8_64/Installed/src.zip!/java/io/OutputStream.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1221,10 +1184,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
           <caret line="240" column="15" selection-start-line="240" selection-start-column="15" selection-end-line="240" selection-end-column="15" />
-          <folding>
-            <element signature="e#8743#8744#0" expanded="false" />
-            <element signature="e#8782#8783#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1263,21 +1222,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/constants/Variable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/ServerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding>
-            <marker date="1471737449808" expanded="true" signature="599:628" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1301,10 +1249,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="e#363#364#0" expanded="false" />
-            <element signature="e#405#406#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1323,7 +1267,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="245">
           <caret line="40" column="61" selection-start-line="40" selection-start-column="61" selection-end-line="40" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1331,14 +1274,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
           <caret line="54" column="52" selection-start-line="54" selection-start-column="52" selection-end-line="54" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/launcher/ServerThreadBytes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -1351,36 +1286,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/reqtype/Register.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="39" column="37" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/launcher/Launcher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="381">
           <caret line="79" column="43" selection-start-line="79" selection-start-column="43" selection-end-line="79" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/reqtype/EventReqText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/constants/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
           <folding />
         </state>
       </provider>
@@ -1390,8 +1299,8 @@
         <state relative-caret-position="229">
           <caret line="2420" column="20" selection-start-line="2420" selection-start-column="20" selection-end-line="2420" selection-end-column="20" />
           <folding>
-            <element signature="e#94598#94599#0" expanded="true" />
-            <element signature="e#94636#94637#0" expanded="true" />
+            <element signature="e#94598#94599#0" expanded="false" />
+            <element signature="e#94636#94637#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1409,35 +1318,17 @@
         <state relative-caret-position="229">
           <caret line="40" column="27" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
           <folding>
-            <element signature="e#1772#1773#0" expanded="true" />
-            <element signature="e#1811#1812#0" expanded="true" />
+            <element signature="e#1772#1773#0" expanded="false" />
+            <element signature="e#1811#1812#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/DetectionUtils.java">
+    <entry file="jar://D:/JavaDevTools/JDK_1.8_64/Installed/src.zip!/java/sql/PreparedStatement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+        <state relative-caret-position="229">
+          <caret line="94" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/StreamUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="63" column="34" selection-start-line="63" selection-start-column="34" selection-end-line="63" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/reqtype/RootEventAddBin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="76" column="63" selection-start-line="76" selection-start-column="63" selection-end-line="76" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1456,14 +1347,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/reqtype/RootEventAddText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/dao/UserDaoTemp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="211">
@@ -1475,46 +1358,130 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/launcher/ServerThreadJson.java">
+    <entry file="file://$PROJECT_DIR$/src/constants/Variable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+        <state relative-caret-position="102">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://D:/JavaDevTools/JDK_1.8_64/Installed/src.zip!/java/sql/PreparedStatement.java">
+    <entry file="file://$PROJECT_DIR$/src/utils/DetectionUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="94" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
+        <state relative-caret-position="177">
+          <caret line="20" column="54" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reqtype/Register.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="43" column="49" selection-start-line="43" selection-start-column="49" selection-end-line="43" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/StreamUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="93" column="23" selection-start-line="93" selection-start-column="23" selection-end-line="93" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bean/PathBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/launcher/ServerThreadBytes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="36" column="52" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/launcher/ServerThreadJson.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="72" column="55" selection-start-line="72" selection-start-column="55" selection-end-line="72" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reqtype/EventReqText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="33" column="60" selection-start-line="33" selection-start-column="60" selection-end-line="33" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/constants/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="50" column="15" selection-start-line="50" selection-start-column="15" selection-end-line="50" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reqtype/LoadPathReq.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="37" column="43" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dao/EventDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="351" column="33" selection-start-line="351" selection-start-column="33" selection-end-line="351" selection-end-column="33" />
+        <state relative-caret-position="-111">
+          <caret line="313" column="64" selection-start-line="313" selection-start-column="64" selection-end-line="313" selection-end-column="64" />
           <folding>
-            <marker date="1471774232177" expanded="true" signature="1743:2156" ph="INSERT INTO events... " />
-            <marker date="1471774232177" expanded="true" signature="4413:4465" ph="INSERT INTO events_records... " />
-            <marker date="1471774232177" expanded="true" signature="4413:4791" ph="INSERT INTO events... " />
-            <marker date="1471774232177" expanded="true" signature="5932:6025" ph="UPDATE event... " />
-            <marker date="1471774232177" expanded="true" signature="6056:6157" ph="UPDATE event... " />
-            <marker date="1471774232177" expanded="true" signature="7281:7301" ph="SELECT * FRO... events" />
-            <marker date="1471774232177" expanded="true" signature="8985:9006" ph="SELECT * FRO... events" />
-            <marker date="1471774232177" expanded="true" signature="8985:9011" ph="SELECT * FRO... events" />
-            <marker date="1471774232177" expanded="true" signature="8985:9018" ph="SELECT * FRO... events" />
-            <marker date="1471774232177" expanded="true" signature="10133:10164" ph="DELETE FROM " />
-            <marker date="1471774232177" expanded="true" signature="10195:10246" ph="UPDATE event... " />
+            <element signature="imports" expanded="true" />
+            <marker date="1471839443732" expanded="true" signature="1717:2130" ph="INSERT INTO events... " />
+            <marker date="1471839443732" expanded="true" signature="4387:4439" ph="INSERT INTO events_records... " />
+            <marker date="1471839443732" expanded="true" signature="4387:4765" ph="INSERT INTO events... " />
+            <marker date="1471839443732" expanded="true" signature="5915:6008" ph="UPDATE event... " />
+            <marker date="1471839443732" expanded="true" signature="6039:6140" ph="UPDATE event... " />
+            <marker date="1471839443732" expanded="true" signature="7643:7709" ph="UPDATE event... " />
+            <marker date="1471839443732" expanded="true" signature="8754:8774" ph="SELECT * FRO... events" />
+            <marker date="1471839443732" expanded="true" signature="10455:10483" ph="SELECT * FRO... events" />
+            <marker date="1471839443732" expanded="true" signature="10455:10488" ph="SELECT * FRO... events" />
+            <marker date="1471839443732" expanded="true" signature="10455:10495" ph="SELECT * FRO... events" />
+            <marker date="1471839443732" expanded="true" signature="11764:11795" ph="DELETE FROM " />
+            <marker date="1471839443732" expanded="true" signature="11826:11877" ph="UPDATE event... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reqtype/RootEventAddText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-95">
+          <caret line="69" column="27" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/reqtype/RootEventRemove.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state relative-caret-position="109">
+          <caret line="29" column="6" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reqtype/RootEventAddBin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="74" column="21" selection-start-line="74" selection-start-column="21" selection-end-line="74" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

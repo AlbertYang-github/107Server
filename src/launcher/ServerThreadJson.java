@@ -66,6 +66,12 @@ public class ServerThreadJson implements Runnable {
                     StringUtils.print("删除事件");
                     new RootEventRemove(socket, in).remove(data);
                     break;
+
+                //获取媒体文件的在线加载地址
+                case Constants.GET_LOAD_PATH:
+                    StringUtils.print("获取媒体文件的在线加载地址");
+                    new LoadPathReq(socket, in).sendPath(data);
+                    break;
             }
         } catch (IOException e) {
             e.printStackTrace();
